@@ -1,0 +1,65 @@
+// CARD
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.card {
+  display: block;
+  padding: calc(#{$space-large-d} - #{$border-width-regular});
+  border: $border-width-regular solid $color-neutral-light-c;
+  border-radius: $border-radius-regular;
+  color: $color-neutral-regular;
+  background-color: $color-white-regular;
+
+  &-media {
+    display: block;
+    max-width: calc(100% + 2 * #{$space-large-d});
+    margin-right: -$space-large-d;
+    margin-bottom: $space-large-e;
+    margin-left: -$space-large-d;
+    transition: outline $transition-regular;
+
+    &:first-child {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      margin-top: -$space-large-d;
+    }
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+
+    img {
+      border-radius: inherit;
+    }
+  }
+
+  &-heading {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Interactive
+
+.card-interactive {
+  transition: background-color $transition-regular, outline $transition-regular;
+
+  &:hover {
+    background-color: $color-neutral-light-a;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+
+  &:active {
+    background-color: $color-neutral-light-b;
+  }
+}

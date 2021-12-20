@@ -1,0 +1,88 @@
+// DIALOG
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/animate-fade" as *;
+@use "../helpers/animate-slide" as *;
+@use "../helpers/focus-visible" as *;
+
+.dialog {
+  display: none;
+  overflow: auto;
+  max-width: 36rem;
+  padding: $space-large-d;
+  border-radius: $border-radius-regular;
+  margin: $space-large-d;
+  color: $color-neutral-regular;
+  background-color: $color-white-regular;
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &.is-shown,
+  &.is-phasing-in,
+  &.is-phasing-out {
+    display: block;
+  }
+
+  &.is-phasing-in {
+    animation: slide-in-regular $transition-slow;
+  }
+
+  &.is-phasing-out {
+    animation: slide-out-regular $transition-slow;
+  }
+
+  &-heading {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Backdrop
+
+.dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: $z-index-bottom;
+  display: none;
+  background-color: $color-black-transparent;
+
+  &.is-shown,
+  &.is-phasing-in,
+  &.is-phasing-out {
+    display: block;
+  }
+
+  &.is-phasing-in {
+    animation: fade-in-regular $transition-slow;
+  }
+
+  &.is-phasing-out {
+    animation: fade-out-regular $transition-slow;
+  }
+}
+
+// Wrapper
+
+.dialog-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-top;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.is-shown,
+  &.is-phasing-in,
+  &.is-phasing-out {
+    display: flex;
+  }
+}

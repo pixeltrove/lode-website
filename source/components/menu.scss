@@ -1,0 +1,79 @@
+// MENU
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/animate-slide" as *;
+@use "../helpers/focus-visible" as *;
+
+.menu {
+  position: absolute;
+  z-index: $z-index-top;
+  display: none;
+  padding-left: 0;
+  border: $border-width-regular solid $color-neutral-light-c;
+  border-radius: $border-radius-regular;
+  margin-top: $space-small-e;
+  margin-bottom: 0;
+  background-color: $color-white-regular;
+
+  &.is-shown,
+  &.is-phasing-in,
+  &.is-phasing-out {
+    display: block;
+  }
+
+  &.is-phasing-in {
+    animation: slide-in-regular $transition-regular;
+  }
+
+  &.is-phasing-out {
+    animation: slide-out-regular $transition-regular;
+  }
+
+  &-item {
+    padding-right: calc(#{$space-small-c} - #{$border-width-regular});
+    padding-left: calc(#{$space-small-c} - #{$border-width-regular});
+
+    &:first-child {
+      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
+    }
+
+    &:last-child {
+      padding-bottom: calc(#{$space-small-c} - #{$border-width-regular});
+    }
+
+    &-separator {
+      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
+      border-top: $border-width-regular solid $color-neutral-light-c;
+      margin-top: $space-small-c;
+    }
+  }
+
+  &-link {
+    display: flex;
+    padding: $space-small-d $space-small-c;
+    border-radius: $border-radius-regular;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+    white-space: nowrap;
+    color: $color-neutral-regular;
+    transition: color $transition-regular, outline $transition-regular;
+
+    &:hover {
+      background-color: $color-neutral-light-a;
+    }
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+
+    &:active {
+      background-color: $color-neutral-light-b;
+    }
+  }
+}
+
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}

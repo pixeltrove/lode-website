@@ -1,0 +1,81 @@
+// ACCORDION
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.accordion {
+  &-segment {
+    border-top: $border-width-regular solid $color-neutral-light-c;
+
+    &:last-child {
+      border-bottom: $border-width-regular solid $color-neutral-light-c;
+    }
+  }
+
+  &-heading {
+    margin-bottom: 0;
+  }
+
+  &-slat {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $space-small-a 0;
+    border: 0;
+    margin-top: -$border-width-regular;
+    font-size: $font-size-large-e;
+    line-height: $line-height-small-a;
+    color: $color-neutral-regular;
+    background-color: transparent;
+    transition: color $transition-regular, outline $transition-regular;
+
+    @at-root .accordion-segment:last-child & {
+      margin-bottom: -$border-width-regular;
+    }
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+  }
+
+  &-icon-toggle {
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    fill: currentColor;
+    transition: transform $transition-regular;
+
+    @at-root .accordion-slat.is-activated & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-panel {
+    display: none;
+    transition: height $transition-regular;
+
+    &.is-shown,
+    &.is-phasing {
+      display: block;
+    }
+  }
+
+  &-panel-inside {
+    padding-top: $space-small-e;
+    padding-bottom: $space-regular;
+
+    @at-root .accordion-segment:last-child & {
+      padding-top: calc(#{$space-small-e} + #{$border-width-regular});
+      padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+// NAVIGATION
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  max-width: 10rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  &-item {
+    margin-bottom: $space-small-e;
+  }
+
+  &-link {
+    display: flex;
+    padding-top: $space-small-e;
+    padding-bottom: $space-small-e;
+    padding-left: $space-large-e;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+    color: $color-neutral-regular;
+    transition: color $transition-regular, outline $transition-regular;
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+
+    &.is-activated {
+      padding-left: calc(#{$space-large-e} - #{$border-width-thick-b});
+      border-left: $border-width-thick-b solid $color-brand-regular;
+      color: $color-brand-regular;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+// LINK
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.link {
+  display: inline-flex;
+  color: $color-brand-regular;
+  text-decoration: $border-width-regular underline $color-brand-medium;
+  text-underline-offset: 0.25rem;
+  transition: text-decoration $transition-regular, outline $transition-regular;
+
+  &:hover {
+    text-decoration-thickness: $border-width-thick-b;
+    text-decoration-color: $color-brand-regular;
+  }
+
+  &:focus-visible {
+    @include focus-visible(rounded);
+  }
+}
+
+// Adaptive
+
+.link-adaptive {
+  color: currentColor;
+  text-decoration-color: currentColor;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}

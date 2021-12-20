@@ -1,0 +1,49 @@
+// TEXTFIELD
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.textfield {
+  display: block;
+  width: 100%;
+  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-small-a} - #{$border-width-regular});
+  border: $border-width-regular solid $color-neutral-medium;
+  border-radius: $border-radius-regular;
+  font-size: $font-size-regular;
+  line-height: $line-height-regular;
+  color: $color-neutral-regular;
+  background-color: $color-white-regular;
+  transition: outline $transition-regular, border-color $transition-regular;
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+
+  &:disabled {
+    opacity: $opacity-medium;
+  }
+
+  &.is-invalid {
+    border-color: $color-negative-medium;
+  }
+}
+
+// Select
+
+.textfield-select {
+  &:not([size]):not([multiple]) {
+    height: calc(#{$font-size-regular} * #{$line-height-regular} + 2 * #{$space-small-b});
+  }
+}
+
+// Label
+
+.textfield-label {
+  cursor: pointer;
+
+  &.is-disabled {
+    opacity: $opacity-medium;
+    cursor: default;
+  }
+}

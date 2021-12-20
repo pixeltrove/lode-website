@@ -1,0 +1,74 @@
+// GLOBAL HEADER
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.global-header {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include set-breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+
+  &-brand {
+    padding-top: $space-small-d;
+    padding-bottom: $space-small-d;
+    margin-right: $space-large-c;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+    font-weight: $font-weight-bold-a;
+    color: $color-neutral-regular;
+    transition: color $transition-regular, outline $transition-regular;
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+  }
+
+  &-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    &-item {
+      &:not(:last-child) {
+        margin-right: $space-large-c;
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      padding-top: $space-small-b;
+      padding-bottom: $space-small-b;
+      color: $color-neutral-regular;
+      transition: color $transition-regular, outline $transition-regular;
+
+      &:hover {
+        color: $color-brand-regular;
+      }
+
+      &:focus-visible {
+        @include focus-visible(rounded);
+      }
+
+      &.is-activated {
+        padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
+        border-bottom: $border-width-thick-b solid $color-brand-regular;
+        color: $color-brand-regular;
+      }
+    }
+  }
+}

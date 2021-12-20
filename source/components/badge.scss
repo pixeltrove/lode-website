@@ -1,0 +1,45 @@
+// BADGE
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+
+.badge {
+  display: inline-flex;
+  padding: $space-small-d $space-small-b;
+  border-radius: $border-radius-full;
+  vertical-align: top;
+  font-size: $font-size-small;
+  line-height: 1;
+  font-weight: $font-weight-bold-b;
+  color: $color-brand-regular;
+  text-transform: uppercase;
+  background-color: $color-brand-light-b;
+}
+
+// Positive
+
+.badge-positive {
+  color: $color-positive-regular;
+  background-color: $color-positive-light-b;
+}
+
+// Attentive
+
+.badge-attentive {
+  color: $color-attentive-regular;
+  background-color: $color-attentive-light-b;
+}
+
+// Negative
+
+.badge-negative {
+  color: $color-negative-regular;
+  background-color: $color-negative-light-b;
+}
+
+// Neutral
+
+.badge-neutral {
+  color: $color-neutral-regular;
+  background-color: $color-neutral-light-b;
+}

@@ -1,0 +1,49 @@
+// SWITCH
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.switch {
+  width: 2.5rem;
+  height: 1.5rem;
+  border: $border-width-regular solid $color-neutral-medium;
+  border-radius: $border-radius-full;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='%233d3d3d'/></svg>");
+  background-position: left center;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-color: $color-white-regular;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: border-color $transition-regular, background-position $transition-regular, background-color $transition-regular, outline $transition-regular;
+
+  &:checked {
+    border-color: $color-brand-regular;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='%23fff'/></svg>");
+    background-position: right center;
+    background-color: $color-brand-regular;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+
+  &:disabled {
+    opacity: $opacity-medium;
+  }
+}
+
+// Label
+
+.switch-label {
+  padding-left: $space-small-e;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &.is-disabled {
+    opacity: $opacity-medium;
+    cursor: default;
+  }
+}

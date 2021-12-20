@@ -1,0 +1,47 @@
+// CHECKBOX
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: $border-width-regular solid $color-neutral-medium;
+  border-radius: $border-radius-regular;
+  vertical-align: middle;
+  background-color: $color-white-regular;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: border-color $transition-regular, background-color $transition-regular, outline $transition-regular;
+
+  &:checked {
+    border-color: $color-brand-regular;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2.91421 6.58579L1.5 8L6.44975 12.9497L14.935 4.46447L13.5208 3.05025L6.44975 10.1213L2.91421 6.58579Z' fill='%23fff'/></svg>");
+    background-position: center;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-color: $color-brand-regular;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+
+  &:disabled {
+    opacity: $opacity-medium;
+  }
+}
+
+// Label
+
+.checkbox-label {
+  padding-left: $space-small-e;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &.is-disabled {
+    opacity: $opacity-medium;
+    cursor: default;
+  }
+}

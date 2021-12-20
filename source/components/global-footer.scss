@@ -1,0 +1,64 @@
+// GLOBAL FOOTER
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.global-footer {
+  padding-top: $space-large-a;
+  padding-bottom: $space-large-a;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    &-item {
+      padding-top: $space-small-e;
+      padding-bottom: $space-small-e;
+    }
+  }
+
+  &-list-horizontal {
+    flex-direction: row;
+
+    .global-footer-list-item {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &:not(:last-of-type) {
+        margin-right: $space-regular;
+      }
+    }
+  }
+
+  &-link {
+    display: inline-block;
+    color: $color-neutral-regular;
+    transition: color $transition-regular, outline $transition-regular;
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+  }
+
+  &-legal {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    @include set-breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

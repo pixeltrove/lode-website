@@ -1,0 +1,20 @@
+// ANIMATE FADE
+// -----------------------------------------------------------------------------
+
+@keyframes fade-in-regular {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-regular {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,117 @@
+// ADVISORY
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.advisory {
+  padding-top: $space-regular;
+  padding-bottom: $space-regular;
+  color: $color-white-regular;
+  background-color: $color-brand-regular;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include set-breakpoint(tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &-icon-lead {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-top: $space-small-e;
+    margin-bottom: $space-small-e;
+    fill: currentColor;
+  }
+
+  &-message {
+    margin-top: $space-small-e;
+    margin-bottom: $space-small-a;
+
+    @include set-breakpoint(tablet) {
+      margin-bottom: $space-small-e;
+
+      &:not(:first-child) {
+        margin-left: $space-regular;
+      }
+
+      &:not(:last-child) {
+        margin-right: $space-regular;
+      }
+    }
+  }
+
+  .advisory-button {
+    color: $color-brand-regular;
+    background-color: $color-white-regular;
+
+    &:hover {
+      background-color: $color-white-transparent-a;
+    }
+
+    &:focus-visible {
+      outline-color: $color-white-regular;
+    }
+
+    &:active {
+      background-color: $color-white-transparent-b;
+    }
+
+    @include set-breakpoint(tablet) {
+      margin-top: -$space-small-d;
+      margin-bottom: -$space-small-d;
+    }
+  }
+
+  .advisory-link {
+    &:focus-visible {
+      outline-color: $color-white-regular;
+    }
+  }
+}
+
+// Positive
+
+.advisory-positive {
+  background-color: $color-positive-regular;
+
+  .advisory-button {
+    color: $color-positive-regular;
+  }
+}
+
+// Attentive
+
+.advisory-attentive {
+  background-color: $color-attentive-regular;
+
+  .advisory-button {
+    color: $color-attentive-regular;
+  }
+}
+
+// Negative
+
+.advisory-negative {
+  background-color: $color-negative-regular;
+
+  .advisory-button {
+    color: $color-negative-regular;
+  }
+}
+
+// Neutral
+
+.advisory-neutral {
+  background-color: $color-neutral-regular;
+
+  .advisory-button {
+    color: $color-neutral-regular;
+  }
+}

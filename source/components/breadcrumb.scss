@@ -1,0 +1,40 @@
+// BREADCRUMB
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-small-d;
+  padding-left: 0;
+
+  &-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &-link {
+    color: $color-neutral-regular;
+    text-decoration: $border-width-regular underline $color-neutral-medium;
+    text-underline-offset: 0.25rem;
+    transition: text-decoration $transition-regular, outline $transition-regular;
+
+    &:hover {
+      text-decoration-thickness: $border-width-thick-b;
+      text-decoration-color: $color-neutral-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+  }
+
+  &-icon-trace {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: $space-small-d;
+    fill: currentColor;
+  }
+}

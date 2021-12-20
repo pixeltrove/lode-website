@@ -1,0 +1,61 @@
+// TABSET
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/animate-fade" as *;
+@use "../helpers/focus-visible" as *;
+
+.tabset {
+  &-navigation {
+    display: flex;
+    padding-left: 0;
+    border-bottom: $border-width-regular solid $color-neutral-light-c;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  &-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $space-small-b $space-regular;
+    border: 0;
+    margin-bottom: -#{$border-width-regular};
+    color: $color-neutral-regular;
+    background-color: transparent;
+    transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(rounded);
+    }
+
+    &.is-activated {
+      color: $color-brand-regular;
+      padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
+      border-bottom: $border-width-thick-b solid $color-brand-regular;
+    }
+  }
+
+  &-panel {
+    display: none;
+    padding-top: $space-regular;
+    padding-bottom: $space-regular;
+
+    &.is-shown,
+    &.is-phasing-in {
+      display: block;
+    }
+
+    &.is-phasing-in {
+      animation: fade-in-regular $transition-slow;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

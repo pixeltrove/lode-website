@@ -1,0 +1,15 @@
+// FOCUS VISIBLE
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+
+@mixin focus-visible($style: "contour") {
+  outline: 2px solid $color-focal-regular;
+  outline-offset: 2px;
+
+  @if $style == "rounded" {
+    border-radius: $border-radius-small;
+  } @else if $style != "contour" {
+    @error "Invalid visible focus style name. Check spelling or review helper definition.";
+  }
+}

@@ -1,0 +1,32 @@
+// STRUCTURE
+// -----------------------------------------------------------------------------
+
+// Container
+
+$container-max-width-regular: 1240px;
+
+// Grid
+
+$grid-columns-regular: (
+  "default": 2,
+  "tablet": (
+    2,
+    3,
+  ),
+  "laptop": (
+    2,
+    3,
+    4,
+    6,
+  ),
+);
+
+$grid-gaps-regular: (
+  "default": 1.25rem,
+  "laptop": 2.5rem,
+);
+
+// Z-index
+
+$z-index-top: 100;
+$z-index-bottom: -100;
