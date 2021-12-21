@@ -1,0 +1,15 @@
+// INTRO
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+
+.intro {
+  padding-top: 3 * $space-large-a;
+  padding-bottom: $space-large-a;
+
+  &-lead {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+}
