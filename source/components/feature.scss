@@ -1,0 +1,16 @@
+// FEATURE
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+
+.feature {
+  &-icon {
+    margin-bottom: $space-small-e;
+  }
+
+  &-heading {
+    margin-bottom: $space-small-c;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+}
