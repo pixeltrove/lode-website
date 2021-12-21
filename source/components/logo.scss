@@ -1,0 +1,15 @@
+// LOGO
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/focus-visible" as *;
+
+.logo {
+  display: inline-flex;
+  margin-bottom: $space-large-e;
+  line-height: 1;
+
+  &:focus-visible {
+    @include focus-visible(rounded);
+  }
+}
