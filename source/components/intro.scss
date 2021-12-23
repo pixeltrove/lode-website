@@ -4,8 +4,12 @@
 @use "../tokens" as *;
 
 .intro {
-  padding-top: 3 * $space-large-a;
+  padding-top: 10rem;
   padding-bottom: $space-large-a;
+
+  &-logo {
+    margin-bottom: $space-large-b;
+  }
 
   &-lead {
     margin-bottom: $space-regular;
