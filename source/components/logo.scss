@@ -6,8 +6,14 @@
 
 .logo {
   display: inline-flex;
-  margin-bottom: $space-large-e;
+  font-size: $font-size-large-b;
   line-height: 1;
+  font-weight: $font-weight-bold-a;
+  color: $color-brand-regular;
+
+  &-mark {
+    margin-right: $space-small-c;
+  }
 
   &:focus-visible {
     @include focus-visible(rounded);
