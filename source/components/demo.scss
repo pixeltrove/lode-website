@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../tokens" as *;
+@use "../helpers/set-breakpoint" as *;
 
 .demo {
   padding-right: $space-large-b;
@@ -11,5 +12,17 @@
     margin-bottom: $space-regular;
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
+  }
+
+  &-example {
+    padding: calc(#{$space-large-c} - #{$border-width-regular});
+    border: $border-width-regular solid $color-neutral-light-c;
+    border-radius: $border-radius-regular;
+
+    @include set-breakpoint(tablet) {
+      margin-top: $space-large-c;
+      margin-right: $space-large-c;
+      margin-left: $space-large-c;
+    }
   }
 }
