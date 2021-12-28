@@ -6,6 +6,9 @@
 @use "../helpers/set-breakpoint" as *;
 
 .global-header {
+  padding-top: $space-regular;
+  padding-bottom: $space-regular;
+
   &-container {
     display: flex;
     flex-direction: column;
@@ -19,18 +22,12 @@
   }
 
   &-brand {
-    padding-top: $space-small-d;
-    padding-bottom: $space-small-d;
     margin-right: $space-large-c;
-    font-size: $font-size-large-c;
-    line-height: $line-height-small-a;
+    font-size: $font-size-large-b;
+    line-height: 1;
     font-weight: $font-weight-bold-a;
-    color: $color-neutral-regular;
+    color: $color-brand-regular;
     transition: color $transition-regular, outline $transition-regular;
-
-    &:hover {
-      color: $color-brand-regular;
-    }
 
     &:focus-visible {
       @include focus-visible(rounded);
@@ -71,4 +68,11 @@
       }
     }
   }
+}
+
+// Distanced
+
+.global-header-distanced {
+  margin-top: 6rem;
+  margin-bottom: $space-large-b;
 }

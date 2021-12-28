@@ -1,0 +1,33 @@
+// DEMO
+// -----------------------------------------------------------------------------
+
+@use "../tokens" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.demo {
+  padding-right: $space-large-b;
+  padding-bottom: 3 * $space-large-b;
+  padding-left: $space-large-b;
+  background-image: url("../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+  &-heading {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+
+  &-example {
+    padding: calc(#{$space-large-c} - #{$border-width-regular});
+    border: $border-width-regular solid $color-neutral-light-c;
+    border-radius: $border-radius-regular;
+    background-color: $color-white-regular;
+
+    @include set-breakpoint(tablet) {
+      margin-top: $space-large-c;
+      margin-right: $space-large-c;
+      margin-left: $space-large-c;
+    }
+  }
+}
